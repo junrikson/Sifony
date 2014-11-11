@@ -1,0 +1,31 @@
+user_profile:
+    pattern:  /
+    defaults: { _controller: "SifoUserBundle:Profile:index" }
+
+user_profile_edit:
+    pattern:  /edit
+    defaults: { _controller: "SifoUserBundle:Profile:edit" }
+
+user_profile_update:
+    pattern:  /update
+    defaults: { _controller: "SifoUserBundle:Profile:update" }
+    requirements: { _method: post|put }
+
+user_profile_password:
+    pattern:  /password
+    defaults: { _controller: "SifoUserBundle:Profile:password" }
+    requirements: { _method: post|put }
+
+user_profile_facebook_reset:
+    pattern:  /facebook-reset
+    defaults: { _controller: "SifoUserBundle:Profile:facebook" }
+    requirements: { _method: post|put }
+
+user_profile_twitter_reset:
+    pattern:  /twitter-reset
+    defaults: { _controller: "SifoUserBundle:Profile:twitter" }
+    requirements: { _method: post|put }
+
+user_profile_settings:
+    pattern:  /settings
+    defaults: { _controller: "SifoUserBundle:Profile:settings" }

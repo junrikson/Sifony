@@ -1,0 +1,67 @@
+{% extends 'SifoAdminBundle::manage/layout.html.twig' %}
+
+{% block content_data %}
+                          <div class="space15"></div>
+                                <div class="form-horizontal tasi-form" style="margin-top: 30px;">
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nama</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.name }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Keterangan</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.description }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-lg-2 col-sm-2 control-label">
+                                      <a class="btn btn-success" data-toggle="modal" href="#myModalAdd" ><i class="icon-plus"></i> Add New</a>
+                                    </div>
+                                  </div>
+                                  <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content" style="text-align: left;" >
+                                          <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                              <h4 class="modal-title">Konfirmasi</h4>
+                                          </div>
+                                          <div class="modal-body" >
+                                            {{ form(form) }}
+                                          </div>
+                                          <div class="modal-footer">                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                                  </div>   
+                                </div>
+                          </div>
+                              <table class="table table-striped table-advance table-hover" >
+                              <thead>
+                                <tr>
+                                  <th><i class="icon-book"></i> Pelajaran</th>
+                                  <th><i class="icon-user"></i> Pengajar</th>
+                                  <th><i class="icon-th-list"></i> Kelompok</th>
+                                  <th width="200px" style="text-align: center;"><i class="icon-wrench"></i> Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+{% if entities == null %}
+                                <tr><td colspan="4" style="text-align: center; font-weight: bold; font-style: italic;">- No Data Available -</td></tr>
+{% else %}
+{% for entities in entities %}
+                                <tr>
+                                  <td><a href="{{ path('admin_grouping_subjects-grouping_show', { 'index': entity.id, 'id': entities.id }) }}"><strong>{{ entities.subject }}</strong></a></td>
+                                  <td>{{ entities.employee }}</td>
+                                  <td>{{ entities.category }}</td>
+                                  <td style="text-align: center;" width="150px">
+                                  <a class="btn btn-primary btn-xs" href="{{ path('admin_grouping_subjects-grouping_edit', { 'index': entity.id, 'id': entities.id }) }}"><i class="icon-pencil"></i>&nbsp;Edit</a>
+                                  <a class="btn btn-danger btn-xs" href="{{ path('admin_grouping_subjects-grouping_remove', { 'index': entity.id, 'id': entities.id }) }}"><i class="icon-trash"></i>&nbsp;Delete</a>
+                                  </td>
+                                </tr>
+{% endfor %}
+{% endif %}
+                              </tbody>
+                              </table>
+{% endblock %}

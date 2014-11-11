@@ -1,0 +1,33 @@
+admin_grouping_students-grouping:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:StudentsGrouping:index" }
+
+admin_grouping_students-grouping_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:StudentsGrouping:filter" }
+
+admin_grouping_students-grouping_show:
+    pattern:  /{index}/{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:StudentsGrouping:show" }
+
+admin_grouping_students-grouping_manage:
+    pattern:  /{id}/manage/index.php
+    defaults: { _controller: "SifoAdminBundle:StudentsGrouping:manage" }
+
+admin_grouping_students-grouping_edit:
+    pattern:  /{index}/{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:StudentsGrouping:edit" }
+
+admin_grouping_students-grouping_update:
+    pattern:  /{index}/{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:StudentsGrouping:update" }
+    requirements: { _method: post|put }
+
+admin_grouping_students-grouping_remove:
+    pattern:  /{index}/{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:StudentsGrouping:remove" }
+
+admin_grouping_students-grouping_delete:
+    pattern:  /{index}/{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:StudentsGrouping:delete" }
+    requirements: { _method: post|delete }

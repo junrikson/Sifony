@@ -1,0 +1,5 @@
+{% extends 'SifoAdminBundle::remove/layout.html.twig' %}
+
+{% block button_show %}<a href="{{ path('admin_grouping_subjects-grouping_show', { 'index': entity.grouping.id, 'id': entity.id }) }}"><strong>{{ entity.subject }}</strong></a>{% endblock %}
+
+{% block button_cancel %}<a href="{{ path('admin_grouping_subjects-grouping_manage', { 'id': entity.grouping.id }) }}" class="btn btn-primary"><i class="icon-edit"></i> &nbsp;{{ 'admin.button.cancel'|trans }}</a>{% endblock %}

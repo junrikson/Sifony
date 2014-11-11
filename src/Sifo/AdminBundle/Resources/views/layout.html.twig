@@ -1,0 +1,235 @@
+{% spaceless %}
+{% set currentRoute = app.request.get('_route') %}
+
+{% if(currentRoute starts with 'admin_default') %}
+   {% set currentGroup = 'admin_default' %}
+{% elseif(currentRoute starts with 'admin_blog') %}
+   {% set currentGroup = 'admin_blog' %}
+{% elseif(currentRoute starts with 'admin_master') %}
+   {% set currentGroup = 'admin_master' %}
+{% elseif(currentRoute starts with 'admin_grouping') %}
+   {% set currentGroup = 'admin_grouping' %}
+{% elseif(currentRoute starts with 'admin_result') %}
+   {% set currentGroup = 'admin_result' %}
+{% elseif(currentRoute starts with 'admin_attendance') %}
+   {% set currentGroup = 'admin_attendance' %}
+{% else %}
+   {% set currentGroup = currentRoute %}
+{% endif %}
+{% endspaceless %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="junrikson@gmail.com">
+    <link rel="shortcut icon" href="{{ asset('bundles/sifoshared/img/favicon.ico') }}">
+
+    <title>
+{% block title %}
+Admin - {{ ('admin.route.' ~ currentRoute)|trans }}
+{% endblock %}
+    </title>
+
+{% block top_embed %} 
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('bundles/sifoshared/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/sifoshared/css/bootstrap-reset.css') }}" rel="stylesheet" />
+    <!--external css-->
+    <link href="{{ asset('bundles/sifoshared/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('bundles/sifoshared/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/sifoshared/css/style-responsive.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/sifoshared/assets/bootstrap-datepicker/css/datepicker.css') }}" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{{ asset('bundles/sifoshared/js/html5shiv.js') }}"></script>
+      <script src="{{ asset('bundles/sifoshared/js/respond.min.js') }}"></script>
+    <![endif]-->
+{% endblock %}
+
+{% block top_special_embed %}
+{% endblock %}
+  </head>
+
+  <body>  
+  <section id="container" class="">
+      <!--header start-->
+      <header class="header white-bg">
+          <div class="sidebar-toggle-box">
+              <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
+          </div>
+          <!--logo start-->
+          <a href="{{ path('admin_default') }}" class="logo" ><img src="{{ asset('bundles/sifoshared/img/logo.png') }}" width="35px" height="35px" />&nbsp;&nbsp;Admin<span>&nbsp;CP</span></a>
+          <!--logo end-->
+          <div class="top-nav ">
+              <ul class="nav pull-right top-menu">
+                  <li>
+                      <input type="text" class="form-control search" placeholder="Search">
+                  </li>
+                  <!-- user login dropdown start-->
+                  <li class="dropdown">
+                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <img alt="" src="{{ asset('bundles/sifoshared/img/avatar1_small.jpg') }}">
+                          <span class="username">{{ user.code }}</span>
+                          <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu extended logout">
+                          <div class="log-arrow-up"></div>
+                          <li><a href="#"><i class=" icon-suitcase"></i>Profile</a></li>
+                          <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+                          <li><a href="#"><i class="icon-bell-alt"></i> Notification</a></li>
+                          <li><a href="{{ path('admin_logout') }}"><i class="icon-key"></i> Log Out</a></li>
+                      </ul>
+                  </li>
+                  <!-- user login dropdown end -->
+              </ul>
+          </div>
+      </header>
+      <!--header end-->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                  <li>
+{% block sidebar_admin %}                  
+                      <a href="{{ path('admin_default') }}" class="{{ (currentGroup == 'admin_default') ? 'active' }}">
+                          <i class="icon-home"></i>
+                          <span>{{ 'admin.route.admin_default'|trans }}</span>
+                      </a>
+{% endblock %}
+                  </li>
+
+                  <li class="sub-menu">
+{% block sidebar_blog %}
+                      <a href="javascript:;" class="{{ (currentGroup == 'admin_blog') ? 'active' }}">
+                          <i class="icon-bullhorn"></i>
+                          <span>{{ 'admin.route.admin_blog'|trans }}</span>
+                      </a>
+{% endblock %}
+                      <ul class="sub">
+                          {% block sidebar_blog_category %} <li class="{{ (currentRoute starts with 'admin_blog_category') ? 'active' }}"><a href="{{ path('admin_blog_category') }}">{{ 'admin.route.admin_blog_category'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_blog_menu %} <li class="{{ (currentRoute starts with 'admin_blog_menu') ? 'active' }}"><a href="{{ path('admin_blog_menu') }}">{{ 'admin.route.admin_blog_menu'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_blog_page %} <li class="{{ (currentRoute starts with 'admin_blog_page') ? 'active' }}"><a href="{{ path('admin_blog_page') }}">{{ 'admin.route.admin_blog_page'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_blog_article %} <li class="{{ (currentRoute starts with 'admin_blog_article') ? 'active' }}"><a href="{{ path('admin_blog_article') }}">{{ 'admin.route.admin_blog_article'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_blog_agenda %} <li class="{{ (currentRoute starts with 'admin_blog_agenda') ? 'active' }}"><a href="{{ path('admin_blog_agenda') }}">{{ 'admin.route.admin_blog_agenda'|trans }}</a></li> {% endblock %}
+                      </ul>
+                  </li>
+  
+                  <li class="sub-menu">
+{% block sidebar_master_data %}
+                      <a href="javascript:;" class="{{ (currentGroup == 'admin_master') ? 'active' }}">
+                          <i class="icon-book"></i>
+                          <span>{{ 'admin.route.admin_master'|trans }}</span>
+                      </a>
+{% endblock %}
+                      <ul class="sub">
+                          {% block sidebar_master_data_period %} <li class="{{ (currentRoute starts with 'admin_master_period') ? 'active' }}"><a href="{{ path('admin_master_period') }}">{{ 'admin.route.admin_master_period'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_master_data_unit %} <li class="{{ (currentRoute starts with 'admin_master_unit') ? 'active' }}"><a href="{{ path('admin_master_unit') }}">{{ 'admin.route.admin_master_unit'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_master_data_subject %} <li class="{{ (currentRoute starts with 'admin_master_subject') ? 'active' }}"><a href="{{ path('admin_master_subject') }}">{{ 'admin.route.admin_master_subject'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_master_data_classroom %} <li class="{{ (currentRoute starts with 'admin_master_classroom') ? 'active' }}"><a href="{{ path('admin_master_classroom') }}">{{ 'admin.route.admin_master_classroom'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_master_data_position %} <li class="{{ (currentRoute starts with 'admin_master_position') ? 'active' }}"><a href="{{ path('admin_master_position') }}">{{ 'admin.route.admin_master_position'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_master_data_employee %} <li class="{{ (currentRoute starts with 'admin_master_employee') ? 'active' }}"><a href="{{ path('admin_master_employee') }}">{{ 'admin.route.admin_master_employee'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_master_data_student %} <li class="{{ (currentRoute starts with 'admin_master_student') ? 'active' }}"><a href="{{ path('admin_master_student') }}">{{ 'admin.route.admin_master_student'|trans }}</a></li> {% endblock %}
+                      </ul>
+                  </li>
+  
+                  <li class="sub-menu">
+{% block sidebar_grouping %}
+                      <a href="javascript:;" class="{{ (currentGroup == 'admin_grouping') ? 'active' }}">
+                          <i class="icon-link"></i>
+                          <span>{{ 'admin.route.admin_grouping'|trans }}</span>
+                      </a>
+{% endblock %}
+                      <ul class="sub">
+                          {% block sidebar_grouping_grouping %} <li class="{{ (currentRoute starts with 'admin_grouping_grouping') ? 'active' }}"><a href="{{ path('admin_grouping_grouping') }}">{{ 'admin.route.admin_grouping_grouping'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_grouping_subjects_grouping %} <li class="{{ (currentRoute starts with 'admin_grouping_subjects-grouping') ? 'active' }}"><a href="{{ path('admin_grouping_subjects-grouping') }}">{{ 'admin.route.admin_grouping_subjects-grouping'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_grouping_students_grouping %} <li class="{{ (currentRoute starts with 'admin_grouping_students-grouping') ? 'active' }}"><a href="{{ path('admin_grouping_students-grouping') }}">{{ 'admin.route.admin_grouping_students-grouping'|trans }}</a></li> {% endblock %}
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+{% block sidebar_result %} 
+                      <a href="javascript:;" class="{{ (currentGroup == 'admin_result') ? 'active' }}">
+                          <i class="icon-trophy"></i>
+                          <span>{{ 'admin.route.admin_result'|trans }}</span>
+                      </a>      
+{% endblock %}
+                      <ul class="sub">
+                          {% block sidebar_result_program %} <li class="{{ (currentRoute starts with 'admin_result_program') ? 'active' }}"><a href="{{ path('admin_result_program') }}">{{ 'admin.route.admin_result_program'|trans }}</a></li> {% endblock %}
+                          {% block sidebar_result_details %} <li class="{{ (currentRoute starts with 'admin_result_result') ? 'active' }}"><a href="{{ path('admin_result_result') }}">{{ 'admin.route.admin_result_result'|trans }}</a></li> {% endblock %}
+                      </ul>
+                  </li>            
+ 
+                  <li class="sub-menu">
+{% block sidebar_attendance %}
+                      <a href="javascript:;" class="{{ (currentGroup == 'admin_attendance') ? 'active' }}">
+                          <i class="icon-check"></i>
+                          <span>{{ 'admin.route.admin_attendance'|trans }}</span>
+                      </a>
+{% endblock %}
+                      <ul class="sub">
+                          {% block sidebar_attendance_attendance %} <li class="{{ (currentRoute starts with 'admin_attendance_attendance') ? 'active' }}"><a href="{{ path('admin_attendance_attendance') }}">{{ 'admin.route.admin_attendance_attendance'|trans }}</a></li> {% endblock %}
+                      </ul>
+                  </li>
+
+{% block sidebar_user_control %}
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="icon-user"></i>
+                          <span>User Control</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="#">Profile</a></li>
+                          <li><a  href="#">Settings</a></li>
+                          <li><a  href="{{ path('admin_logout') }}">Log Out</a></li>
+                      </ul>
+                  </li>
+{% endblock %}
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper site-min-height">
+{% block content %}
+{% endblock %}
+          </section>
+      </section>
+      <!--main content end-->
+      <!--footer start-->
+      <footer class="site-footer">
+          <div class="text-center">
+              2014 &copy; YP. Sultan Iskandar Muda
+              <a href="#" class="go-top">
+                  <i class="icon-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
+{% block bottom_embed %}
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{{ asset('bundles/sifoshared/js/jquery-1.8.3.min.js') }}"></script>
+    <script src="{{ asset('bundles/sifoshared/js/bootstrap.min.js') }}"></script>
+    <script class="include" type="text/javascript" src="{{ asset('bundles/sifoshared/js/jquery.dcjqaccordion.2.7.js') }}"></script>
+    <script src="{{ asset('bundles/sifoshared/js/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ asset('bundles/sifoshared/js/jquery.nicescroll.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sifoshared/assets/data-tables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/sifoshared/js/respond.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/sifoshared/assets/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script> 
+    <script src="{{ asset('bundles/sifoshared/js/advanced-form-components.js') }}"></script>
+
+    <!--common script for all pages-->
+    <script src="{{ asset('bundles/sifoshared/js/common-scripts.js') }}"></script>
+{% endblock %}
+
+{% block bottom_special_embed %}
+{% endblock %}
+  </body>
+</html>

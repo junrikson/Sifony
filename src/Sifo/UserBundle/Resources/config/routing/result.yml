@@ -1,0 +1,7 @@
+user_result:
+    pattern:  /{id}/
+    defaults: { _controller: "SifoUserBundle:Result:index" }
+
+user_result_choose:
+    pattern:  /{id}/{grouping}
+    defaults: { _controller: "SifoUserBundle:Result:choose" }

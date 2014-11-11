@@ -1,0 +1,38 @@
+admin_master_position:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:Position:index" }
+
+admin_master_position_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:Position:filter" }
+
+admin_master_position_show:
+    pattern:  /{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:Position:show" }
+
+admin_master_position_new:
+    pattern:  /new/index.php
+    defaults: { _controller: "SifoAdminBundle:Position:new" }
+
+admin_master_position_create:
+    pattern:  /create/index.php
+    defaults: { _controller: "SifoAdminBundle:Position:create" }
+    requirements: { _method: post }
+
+admin_master_position_edit:
+    pattern:  /{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:Position:edit" }
+
+admin_master_position_update:
+    pattern:  /{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:Position:update" }
+    requirements: { _method: post|put }
+
+admin_master_position_remove:
+    pattern:  /{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:Position:remove" }
+
+admin_master_position_delete:
+    pattern:  /{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:Position:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,38 @@
+admin_blog_category:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:BlogCategory:index" }
+
+admin_blog_category_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogCategory:filter" }
+
+admin_blog_category_show:
+    pattern:  /{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogCategory:show" }
+
+admin_blog_category_new:
+    pattern:  /new/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogCategory:new" }
+
+admin_blog_category_create:
+    pattern:  /create/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogCategory:create" }
+    requirements: { _method: post }
+
+admin_blog_category_edit:
+    pattern:  /{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogCategory:edit" }
+
+admin_blog_category_update:
+    pattern:  /{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogCategory:update" }
+    requirements: { _method: post|put }
+
+admin_blog_category_remove:
+    pattern:  /{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogCategory:remove" }
+
+admin_blog_category_delete:
+    pattern:  /{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogCategory:delete" }
+    requirements: { _method: post|delete }

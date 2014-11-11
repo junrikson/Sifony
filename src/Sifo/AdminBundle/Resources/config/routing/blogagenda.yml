@@ -1,0 +1,38 @@
+admin_blog_agenda:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:BlogAgenda:index" }
+
+admin_blog_agenda_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogAgenda:filter" }
+
+admin_blog_agenda_show:
+    pattern:  /{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogAgenda:show" }
+
+admin_blog_agenda_new:
+    pattern:  /new/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogAgenda:new" }
+
+admin_blog_agenda_create:
+    pattern:  /create/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogAgenda:create" }
+    requirements: { _method: post }
+
+admin_blog_agenda_edit:
+    pattern:  /{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogAgenda:edit" }
+
+admin_blog_agenda_update:
+    pattern:  /{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogAgenda:update" }
+    requirements: { _method: post|put }
+
+admin_blog_agenda_remove:
+    pattern:  /{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogAgenda:remove" }
+
+admin_blog_agenda_delete:
+    pattern:  /{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:BlogAgenda:delete" }
+    requirements: { _method: post|delete }

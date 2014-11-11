@@ -1,0 +1,33 @@
+admin_grouping_subjects-grouping:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:SubjectsGrouping:index" }
+
+admin_grouping_subjects-grouping_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:SubjectsGrouping:filter" }
+
+admin_grouping_subjects-grouping_show:
+    pattern:  /{index}/{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:SubjectsGrouping:show" }
+
+admin_grouping_subjects-grouping_manage:
+    pattern:  /{id}/manage/index.php
+    defaults: { _controller: "SifoAdminBundle:SubjectsGrouping:manage" }
+
+admin_grouping_subjects-grouping_edit:
+    pattern:  /{index}/{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:SubjectsGrouping:edit" }
+
+admin_grouping_subjects-grouping_update:
+    pattern:  /{index}/{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:SubjectsGrouping:update" }
+    requirements: { _method: post|put }
+
+admin_grouping_subjects-grouping_remove:
+    pattern:  /{index}/{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:SubjectsGrouping:remove" }
+
+admin_grouping_subjects-grouping_delete:
+    pattern:  /{index}/{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:SubjectsGrouping:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,29 @@
+{% extends 'SifoAdminBundle::layout.html.twig' %}
+ 
+{% block content %}
+<!-- page start-->
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                        <header class="panel-heading">
+{% block content_header %}
+{{ ('admin.route.' ~ currentGroup)|trans }} - {{ ('admin.route.' ~ currentRoute)|trans }}
+{% endblock %}
+                        </header>
+                        <div class="panel-body">
+                            <div class="clearfix">
+                                <h4>{{ 'admin.text.deleteConfirmation'|trans }}&nbsp;{% block button_show %}<a href="{{ path((currentRoute|slice(0,(currentRoute|length)-7) ~ '_show'), { 'id': entity.id }) }}"><strong>{{ entity.name }}</strong></a>{% endblock %} ?</h4> 
+                            </div>
+                            <div class="space15"></div>
+                            <div class="form-horizontal tasi-form" style="margin-top: 30px;">
+                                <table>
+                                <tr><td>{{ form(form) }}</td>
+                                    <td>{% block button_cancel %}<a href="{{ path(currentRoute|slice(0,(currentRoute|length)-7)) }}" class="btn btn-primary"><i class="icon-cancel"></i>&nbsp;{{ 'admin.button.cancel'|trans }}</a>{% endblock %}</td>
+                                </tr>
+                                </table>
+                            </div>
+                        </div>
+                      </section>
+                  </div>
+              </div>
+{% endblock %}

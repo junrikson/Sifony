@@ -1,0 +1,41 @@
+{% set currentPath = path(app.request.get('_route'), app.request.query.all) %}
+{% set currentPage = paginator.getCurrentPage() %}
+{% set totalPages = paginator.getTotalPages() %}
+{% set totalItems = paginator.getCount() %}
+{% set limit = paginator.getLimit() %}
+{% set currentItems = currentPage * limit %}
+
+<ul class="pagination pagination-sm pull-right" style="margin-top: 0; margin-right: 30px;">
+{% if currentPage > 1 %}
+    <li><a href="{{ path(app.request.get('_route'), app.request.query.all|merge({ 'page' : 1 })) }}">&laquo;</a></li>
+    <li><a href="{{ path(app.request.get('_route'), app.request.query.all|merge({ 'page' : ( currentPage > 1 ? currentPage - 1 : 1 )})) }}"><</a></li>
+{% endif %}
+ 
+{% if (currentPage - 3) > 0 %}
+    <li><a href="#">...</a></li>
+{% endif %}
+{% if (currentPage - 2) > 0 %}
+    <li><a href="{{ path(app.request.get('_route'), app.request.query.all|merge({ 'page' : ( currentPage - 2 )})) }}">{{ currentPage - 2 }}</a></li>
+{% endif %}
+{% if (currentPage - 1) > 0 %}
+    <li><a href="{{ path(app.request.get('_route'), app.request.query.all|merge({ 'page' : ( currentPage - 1 )})) }}">{{ currentPage - 1 }}</a></li>
+{% endif %}
+<li class="active"><a href="#">{{ currentPage }}</a></li>
+{% if (currentPage + 1) <= totalPages %}
+    <li><a href="{{ path(app.request.get('_route'), app.request.query.all|merge({ 'page' : ( currentPage + 1 )})) }}">{{ currentPage + 1 }}</a></li>
+{% endif %}
+{% if (currentPage + 2) <= totalPages %}
+    <li><a href="{{ path(app.request.get('_route'), app.request.query.all|merge({ 'page' : ( currentPage + 2 )})) }}">{{ currentPage + 2 }}</a></li>
+{% endif %}
+{% if (currentPage + 2) < totalPages %}
+    <li><a href="#">...</a></li>
+{% endif %}
+ 
+{% if currentPage < totalPages %}
+    <li><a href="{{ path(app.request.get('_route'), app.request.query.all|merge({ 'page' : ( currentPage < totalPages ? currentPage + 1 : currentPage )})) }}">></a></li>
+    <li><a href="{{ path(app.request.get('_route'), app.request.query.all|merge({ 'page' : ( totalPages )})) }}">&raquo;</a></li>
+{% endif %}
+ 
+</ul>
+
+<div class="pull-right" style="margin-top: 5px; margin-right: 15px;">{{ 'admin.text.showing'|trans }}&nbsp;{{ currentItems - limit + 1 }}&nbsp;{{ 'admin.text.to'|trans }}&nbsp;{% if (currentPage != totalPages) %}{{ currentItems }}{% else %}{{ totalItems }}{% endif %}&nbsp;{{ 'admin.text.of'|trans }}&nbsp;{{ totalItems }}&nbsp;{{ 'admin.text.entries'|trans }}</div>

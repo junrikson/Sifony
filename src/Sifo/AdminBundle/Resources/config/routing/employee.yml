@@ -1,0 +1,43 @@
+admin_master_employee:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:index" }
+
+admin_master_employee_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:filter" }
+
+admin_master_employee_show:
+    pattern:  /{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:show" }
+
+admin_master_employee_new:
+    pattern:  /new/index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:new" }
+
+admin_master_employee_create:
+    pattern:  /create/index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:create" }
+    requirements: { _method: post }
+
+admin_master_employee_edit:
+    pattern:  /{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:edit" }
+
+admin_master_employee_update:
+    pattern:  /{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:update" }
+    requirements: { _method: post|put }
+
+admin_master_employee_update_password:
+    pattern:  /{id}/update-password/index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:password" }
+    requirements: { _method: post|put }
+
+admin_master_employee_remove:
+    pattern:  /{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:remove" }
+
+admin_master_employee_delete:
+    pattern:  /{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:Employee:delete" }
+    requirements: { _method: post|delete }

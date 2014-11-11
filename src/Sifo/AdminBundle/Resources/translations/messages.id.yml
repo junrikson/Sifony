@@ -1,0 +1,170 @@
+# Sifo\AdminBundle\Resources\translations\messages.id.yml
+admin:
+  button:
+    addNew: Tambah Baru
+    backToList: Kembali ke daftar
+    batch: Batch
+    cancel: Batalkan
+    checkAll: Centang Semuanya
+    delete: Hapus
+    disable: Nonaktifkan
+    edit: Ubah
+    enable: Aktifkan
+    exportExcel: Simpan ke Excel
+    filter: Filter
+    print: Cetak
+    remove: Hapus
+    save: Simpan
+    savePdf: Simpan ke PDF
+    search: Lakukan Pencarian
+    tools: Peralatan
+  choice:
+    choosePage: - Pilih Halaman -
+    chooseParent: - Pilih Parent -
+    header: Header
+    hour: Jam
+    link: Link
+    minute: Menit
+  label:
+    category: Kategori
+    code: Kode
+    content: Konten
+    createdAt: Dibuat Pada
+    dateStart: Tanggal Dimulai
+    dateEnd: Tanggal Berakhir
+    timeStart: Waktu Dimulai
+    timeEnd: Waktu Berakhir
+    description: Keterangan
+    isActive: Status
+    name: Nama
+    operator: Operator
+    orders: Urutan
+    page: Halaman
+    parent: Parent
+    place: Tempat
+    status: Status
+    tittle: Judul
+    tools: Pengaturan
+    type: Tipe
+    updatedAt: Diperbaharui
+  login:
+    adminLogin: Admin Login
+    backHome: Back to Home
+    password: Password
+    rememberMe: Remember Me
+    signIn: Sign In
+    tittle: Admin Login
+    userId: User ID
+  route:
+    admin_default: Home
+    admin_blog: Blog
+    admin_blog_category: Daftar Kategori
+    admin_blog_category_new: Daftar Kategori - Tambah
+    admin_blog_category_edit: Daftar Kategori - Ubah
+    admin_blog_category_remove: Daftar Kategori - Hapus
+    admin_blog_category_show: Daftar Kategori - Tampil
+    admin_blog_category_filter: Daftar Kategori - Filter
+    admin_blog_menu: Daftar Menu
+    admin_blog_menu_new: Daftar Menu - Tambah
+    admin_blog_menu_edit: Daftar Menu - Ubah
+    admin_blog_menu_remove: Daftar Menu - Hapus
+    admin_blog_menu_show: Daftar Menu - Tampil
+    admin_blog_menu_filter: Daftar Menu - Filter
+    admin_blog_page: Daftar Halaman
+    admin_blog_page_new: Daftar Halaman - Tambah
+    admin_blog_page_edit: Daftar Halaman - Ubah
+    admin_blog_page_remove: Daftar Halaman - Hapus
+    admin_blog_page_show: Daftar Halaman - Tampil
+    admin_blog_page_filter: Daftar Halaman - Filter
+    admin_blog_article: Daftar Artikel
+    admin_blog_article_new: Daftar Artikel - Tambah
+    admin_blog_article_edit: Daftar Artikel - Ubah
+    admin_blog_article_remove: Daftar Artikel - Hapus
+    admin_blog_article_show: Daftar Artikel - Tampil
+    admin_blog_article_filter: Daftar Artikel - Filter
+    admin_blog_agenda: Daftar Agenda
+    admin_blog_agenda_new: Daftar Agenda - Tambah
+    admin_blog_agenda_edit: Daftar Agenda - Ubah
+    admin_blog_agenda_remove: Daftar Agenda - Hapus
+    admin_blog_agenda_show: Daftar Agenda - Tampil
+    admin_blog_agenda_filter: Daftar Agenda - Filter
+    admin_master: Data Master
+    admin_master_student: Daftar Pelajar
+    admin_master_student_new: Daftar Pelajar - Tambah
+    admin_master_student_edit: Daftar Pelajar - Ubah
+    admin_master_student_remove: Daftar Pelajar - Hapus
+    admin_master_student_show: Daftar Pelajar - Tampil
+    admin_master_student_filter: Daftar Pelajar - Filter
+    admin_master_period: Daftar Periode
+    admin_master_period_new: Daftar Periode - Tambah
+    admin_master_period_edit: Daftar Periode - Ubah
+    admin_master_period_remove: Daftar Periode - Hapus
+    admin_master_period_show: Daftar Periode - Tampil
+    admin_master_period_filter: Daftar Periode - Filter
+    admin_master_unit: Daftar Unit
+    admin_master_unit_new: Daftar Unit - Tambah
+    admin_master_unit_edit: Daftar Unit - Ubah
+    admin_master_unit_remove: Daftar Unit - Hapus
+    admin_master_unit_show: Daftar Unit - Tampil
+    admin_master_unit_filter: Daftar Unit - Filter
+    admin_master_subject: Daftar Mata Pelajaran
+    admin_master_subject_new: Daftar Mata Pelajaran - Tambah
+    admin_master_subject_edit: Daftar Mata Pelajaran - Ubah
+    admin_master_subject_remove: Daftar Mata Pelajaran - Hapus
+    admin_master_subject_show: Daftar Mata Pelajaran - Tampil
+    admin_master_subject_filter: Daftar Mata Pelajaran - Filter
+    admin_master_classroom: Daftar Kelas
+    admin_master_classroom_new: Daftar Kelas - Tambah
+    admin_master_classroom_edit: Daftar Kelas - Ubah
+    admin_master_classroom_remove: Daftar Kelas - Hapus
+    admin_master_classroom_show: Daftar Kelas - Tampil
+    admin_master_classroom_filter: Daftar Kelas - Filter
+    admin_master_position: Daftar Jabatan
+    admin_master_position_new: Daftar Jabatan - Tambah
+    admin_master_position_edit: Daftar Jabatan - Ubah
+    admin_master_position_remove: Daftar Jabatan - Hapus
+    admin_master_position_show: Daftar Jabatan - Tampil
+    admin_master_position_filter: Daftar Jabatan - Filter
+    admin_master_employee: Daftar Karyawan
+    admin_master_employee_new: Daftar Karyawan - Tambah
+    admin_master_employee_edit: Daftar Karyawan - Ubah
+    admin_master_employee_remove: Daftar Karyawan - Hapus
+    admin_master_employee_show: Daftar Karyawan - Tampil
+    admin_master_employee_filter: Daftar Karyawan - Filter
+    admin_grouping: Grouping
+    admin_grouping_grouping: Daftar Grouping
+    admin_grouping_grouping_new: Daftar Grouping - Tambah
+    admin_grouping_grouping_edit: Daftar Grouping - Ubah
+    admin_grouping_grouping_remove: Daftar Grouping - Hapus
+    admin_grouping_grouping_show: Daftar Grouping - Tampil
+    admin_grouping_grouping_filter: Daftar Grouping - Filter
+    admin_grouping_subjects-grouping: Grouping Mata Pelajaran
+    admin_grouping_subjects-grouping_manage: Grouping Mata Pelajaran - Kelola
+    admin_grouping_subjects-grouping_show: Grouping Mata Pelajaran - Tampil
+    admin_grouping_subjects-grouping_remove: Grouping Mata Pelajaran - Hapus
+    admin_grouping_subjects-grouping_edit: Grouping Mata Pelajaran - Ubah
+    admin_grouping_students-grouping: Grouping Pelajar
+    admin_grouping_students-grouping_manage: Grouping Pelajar - Kelola
+    admin_grouping_students-grouping_show: Grouping Pelajar - Tampil
+    admin_grouping_students-grouping_remove: Grouping Pelajar - Hapus
+    admin_grouping_students-grouping_edit: Grouping Pelajar - Ubah
+    admin_result: Nilai
+    admin_result_program: Daftar Program Ujian
+    admin_result_program_new: Daftar Program Ujian - Tambah
+    admin_result_program_edit: Daftar Program Ujian - Ubah
+    admin_result_program_remove: Daftar Program Ujian - Hapus
+    admin_result_program_show: Daftar Program Ujian - Tampil
+    admin_result_program_filter: Daftar Program Ujian - Filter
+    admin_result_result: Daftar Nilai
+    admin_result_result_manage: Daftar Nilai - Kelola
+    admin_attendance: Absensi
+    admin_attendance_attendance: Daftar Absensi
+    admin_attendance_attendance_manage: Daftar Absensi - Kelola
+  text:
+    deleteConfirmation: Data yang sudah dihapus tidak dapat dikembalikan lagi. Apakah anda yakin mau menghapus data
+    entries: hasil
+    filterSearch: Filter Hasil
+    noData: - Tidak ada Data -
+    of: dari
+    showing: Menampilkan
+    to: sampai

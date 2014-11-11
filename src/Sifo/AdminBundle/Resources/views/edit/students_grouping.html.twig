@@ -1,0 +1,13 @@
+{% extends 'SifoAdminBundle::edit/layout.html.twig' %}
+
+{% block content_button_back %}
+                                <div class="btn-group">
+                                    <a href="{{ path('admin_grouping_students-grouping_manage', { 'id': entity.grouping.id }) }}"  class="btn btn-success" ><i class="icon-hand-left"></i>&nbsp;{{ 'admin.button.backToList'|trans }}</a> 
+                                </div>
+{% endblock %}
+
+{% block content_button_remove %}
+                                <div class="btn-group pull-right">                                  
+                                    <a href="{{ path('admin_grouping_students-grouping_remove', { 'id': entity.id, 'index': entity.grouping.id }) }}" class="btn btn-danger"><i class="icon-trash"></i>&nbsp;{{ 'admin.button.delete'|trans }}</a>
+                                </div>
+{% endblock %}

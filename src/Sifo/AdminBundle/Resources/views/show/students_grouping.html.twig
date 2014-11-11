@@ -1,0 +1,61 @@
+{% extends 'SifoAdminBundle::layout_show.html.twig' %}
+
+{% block content_button_back %}
+                              <div class="btn-group">
+                                  <a href="{{ path('admin_grouping_students-grouping_manage', { 'id': entity.grouping.id }) }}"  class="btn btn-success" ><i class="icon-hand-left"></i>&nbsp;{{ 'admin.button.backToList'|trans }}</a> 
+                              </div>
+{% endblock %}
+
+{% block content_data %}
+                                <div class="form-horizontal tasi-form" style="margin-top: 30px;">
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Pelajar</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.student }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Keterangan</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.description }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Aktif</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">
+                                            {% if entity.isActive == "1" %}
+                                            <i class="icon-ok"></i>
+                                            {% else %}
+                                            <i class="icon-remove"></i>
+                                            {% endif %}
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Dibuat Pada</label>
+                                      <div class="col-lg-10">
+                                            <p class="form-control-static">{{ entity.createdAt|date('d-m-Y H:i:s') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Diupdate Terakhir</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.updatedAt|date('d-m-Y H:i:s') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Operator</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.operator }}</p>
+                                      </div>
+                                  </div>
+{% endblock %}
+
+{% block content_button_remove %}
+                              <div class="btn-group pull-right" style="margin-right: 5px;"><a href="{{ path('admin_grouping_students-grouping_remove', { 'id': entity.id, 'index': entity.grouping.id }) }}" class="btn btn-danger"><i class="icon-trash"></i> &nbsp;Delete</a></div> 
+{% endblock %}
+
+{% block content_button_edit %}
+                                          <a href="{{ path('admin_grouping_students-grouping_edit', { 'id': entity.id, 'index': entity.grouping.id }) }}" class="btn btn-primary"><i class="icon-edit"></i> &nbsp;Edit</a>
+{% endblock %}

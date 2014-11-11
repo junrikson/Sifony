@@ -1,0 +1,38 @@
+admin_master_classroom:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:Classroom:index" }
+
+admin_master_classroom_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:Classroom:filter" }
+
+admin_master_classroom_show:
+    pattern:  /{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:Classroom:show" }
+
+admin_master_classroom_new:
+    pattern:  /new/index.php
+    defaults: { _controller: "SifoAdminBundle:Classroom:new" }
+
+admin_master_classroom_create:
+    pattern:  /create/index.php
+    defaults: { _controller: "SifoAdminBundle:Classroom:create" }
+    requirements: { _method: post }
+
+admin_master_classroom_edit:
+    pattern:  /{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:Classroom:edit" }
+
+admin_master_classroom_update:
+    pattern:  /{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:Classroom:update" }
+    requirements: { _method: post|put }
+
+admin_master_classroom_remove:
+    pattern:  /{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:Classroom:remove" }
+
+admin_master_classroom_delete:
+    pattern:  /{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:Classroom:delete" }
+    requirements: { _method: post|delete }

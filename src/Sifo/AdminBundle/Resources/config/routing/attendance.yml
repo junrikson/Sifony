@@ -1,0 +1,11 @@
+admin_attendance_attendance:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:Attendance:index" }
+
+admin_attendance_attendance_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:Attendance:filter" }
+
+admin_attendance_attendance_manage:
+    pattern:  /{id}/manage/index.php
+    defaults: { _controller: "SifoAdminBundle:Attendance:manage" }

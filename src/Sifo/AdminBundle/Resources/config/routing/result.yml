@@ -1,0 +1,11 @@
+admin_result_result:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:Result:index" }
+
+admin_result_result_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:Result:filter" }
+
+admin_result_result_manage:
+    pattern:  /{id}/manage/index.php
+    defaults: { _controller: "SifoAdminBundle:Result:manage" }

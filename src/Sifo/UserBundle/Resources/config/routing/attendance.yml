@@ -1,0 +1,3 @@
+user_attendance:
+    pattern:  /
+    defaults: { _controller: "SifoUserBundle:Attendance:index" }

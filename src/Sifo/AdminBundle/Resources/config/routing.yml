@@ -1,0 +1,75 @@
+SifoAdminBundle_admin_default:
+    resource: "@SifoAdminBundle/Resources/config/routing/default.yml"
+    prefix:   /admin
+
+SifoAdminBundle_admin_blog_category:
+    resource: "@SifoAdminBundle/Resources/config/routing/blogcategory.yml"
+    prefix:   /admin/blog/category
+
+SifoAdminBundle_admin_blog_menu:
+    resource: "@SifoAdminBundle/Resources/config/routing/blogmenu.yml"
+    prefix:   /admin/blog/menu
+
+SifoAdminBundle_admin_blog_page:
+    resource: "@SifoAdminBundle/Resources/config/routing/blogpage.yml"
+    prefix:   /admin/blog/page
+
+SifoAdminBundle_admin_blog_article:
+    resource: "@SifoAdminBundle/Resources/config/routing/blogarticle.yml"
+    prefix:   /admin/blog/article
+
+SifoAdminBundle_admin_blog_agenda:
+    resource: "@SifoAdminBundle/Resources/config/routing/blogagenda.yml"
+    prefix:   /admin/blog/agenda
+
+SifoAdminBundle_admin_master_student:
+    resource: "@SifoAdminBundle/Resources/config/routing/student.yml"
+    prefix:   /admin/master/student
+
+SifoAdminBundle_admin_master_unit:
+    resource: "@SifoAdminBundle/Resources/config/routing/unit.yml"
+    prefix:   /admin/master/unit
+
+SifoAdminBundle_admin_master_period:
+    resource: "@SifoAdminBundle/Resources/config/routing/period.yml"
+    prefix:   /admin/master/period
+
+SifoAdminBundle_admin_master_subject:
+    resource: "@SifoAdminBundle/Resources/config/routing/subject.yml"
+    prefix:   /admin/master/subject
+
+SifoAdminBundle_admin_master_classroom:
+    resource: "@SifoAdminBundle/Resources/config/routing/classroom.yml"
+    prefix:   /admin/master/classroom
+
+SifoAdminBundle_admin_master_position:
+    resource: "@SifoAdminBundle/Resources/config/routing/position.yml"
+    prefix:   /admin/master/position
+
+SifoAdminBundle_admin_master_employee:
+    resource: "@SifoAdminBundle/Resources/config/routing/employee.yml"
+    prefix:   /admin/master/employee
+
+SifoAdminBundle_admin_grouping_grouping:
+    resource: "@SifoAdminBundle/Resources/config/routing/grouping.yml"
+    prefix:   /admin/grouping/grouping
+
+SifoAdminBundle_admin_grouping_subjects-grouping:
+    resource: "@SifoAdminBundle/Resources/config/routing/subjectsgrouping.yml"
+    prefix:   /admin/grouping/subjects-grouping
+
+SifoAdminBundle_admin_grouping_students-grouping:
+    resource: "@SifoAdminBundle/Resources/config/routing/studentsgrouping.yml"
+    prefix:   /admin/grouping/students-grouping
+
+SifoAdminBundle_admin_result_result:
+    resource: "@SifoAdminBundle/Resources/config/routing/result.yml"
+    prefix:   /admin/result/result
+
+SifoAdminBundle_admin_result_program:
+    resource: "@SifoAdminBundle/Resources/config/routing/program.yml"
+    prefix:   /admin/result/program
+
+SifoAdminBundle_admin_attendance_attendance:
+    resource: "@SifoAdminBundle/Resources/config/routing/attendance.yml"
+    prefix:   /admin/attendance/attendance

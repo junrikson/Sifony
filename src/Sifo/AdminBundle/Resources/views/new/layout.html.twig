@@ -1,0 +1,40 @@
+{% extends 'SifoAdminBundle::layout.html.twig' %}
+
+{% form_theme form _self %}
+{% block form_row %}
+<div class="form-group">
+  {{ form_label(form) }}
+  <div class="col-sm-10">
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- page start-->
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                        <header class="panel-heading">
+{{ ('admin.route.' ~ currentGroup)|trans }} - {{ ('admin.route.' ~ currentRoute)|trans }}
+                        </header>
+                        <div class="panel-body">
+                            <div class="clearfix">
+                                <div class="btn-group">
+                                    <a href="{{ path(currentRoute|slice(0,(currentRoute|length)-4)) }}"  class="btn btn-success" ><i class="icon-hand-left"></i>&nbsp;{{ 'admin.button.backToList'|trans }}</a> 
+                                </div>                              
+                            </div>
+                            <div class="space15"></div> 
+                            <div class="form-horizontal tasi-form" style="margin-top: 30px;">
+                                {{ form(form) }}
+                            </div>
+                        </div>
+                      </section>
+                  </div>
+              </div>
+{% endblock %}
+
+{% block bottom_special_embed %}
+    <script type="text/javascript" src="{{ asset('bundles/sifoshared/assets/ckeditor/ckeditor.js') }}"></script> 
+{% endblock %}

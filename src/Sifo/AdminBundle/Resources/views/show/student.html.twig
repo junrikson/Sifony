@@ -1,0 +1,193 @@
+{% extends 'SifoAdminBundle::show/layout.html.twig' %}
+
+{% block content_data %}
+                                <div class="form-horizontal tasi-form" style="margin-top: 30px;">
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">NIS-SIM</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.code }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nama Lengkap</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.name }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Unit</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.unit }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Periode Masuk</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.period }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Tanggal Masuk</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.dateEntered|date('d-m-Y') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">NISDN</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.otherCode }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Email</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.email }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Jenis Kelamin</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">
+                                          {% if entity.gender == "M" %}
+                                              Laki-laki
+                                          {% elseif entity.gender == "F" %}
+                                              Perempuan
+                                          {% else %}
+                                              {{ entity.gender }}
+                                          {% endif %}
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Tempat Lahir</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.birthPlace }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Tanggal Lahir</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.birthDate|date('d-m-Y') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Agama</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.religion }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Alamat</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.address }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nomor Telepon</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.phone }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nomor Handphone</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.mobile }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Golongan Darah</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.bloodType }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nama Ayah</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.fatherName }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Pekerjaan Ayah</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.fatherJob }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Telepon Ayah</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.fatherPhone }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nama Ibu</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.motherName }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Pekerjaan Ibu</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.motherJob }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Telepon Ibu</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.motherPhone }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nama Wali</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.custodianName }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Pekerjaan Wali</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.custodianJob }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Telepon Wali</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.custodianPhone }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Keterangan Lainnya</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.description }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Aktif</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">
+                                            {% if entity.isActive == "1" %}
+                                            <i class="icon-ok"></i>
+                                            {% else %}
+                                            <i class="icon-remove"></i>
+                                            {% endif %}
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Dibuat Pada</label>
+                                      <div class="col-lg-10">
+                                            <p class="form-control-static">{{ entity.createdAt|date('d-m-Y H:i:s') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Diupdate Terakhir</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.updatedAt|date('d-m-Y H:i:s') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Operator</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.operator }}</p>
+                                      </div>
+                                  </div>
+{% endblock %}

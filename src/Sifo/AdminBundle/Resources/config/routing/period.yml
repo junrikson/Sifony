@@ -1,0 +1,38 @@
+admin_master_period:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:Period:index" }
+
+admin_master_period_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:Period:filter" }
+
+admin_master_period_show:
+    pattern:  /{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:Period:show" }
+
+admin_master_period_new:
+    pattern:  /new/index.php
+    defaults: { _controller: "SifoAdminBundle:Period:new" }
+
+admin_master_period_create:
+    pattern:  /create/index.php
+    defaults: { _controller: "SifoAdminBundle:Period:create" }
+    requirements: { _method: post }
+
+admin_master_period_edit:
+    pattern:  /{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:Period:edit" }
+
+admin_master_period_update:
+    pattern:  /{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:Period:update" }
+    requirements: { _method: post|put }
+
+admin_master_period_remove:
+    pattern:  /{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:Period:remove" }
+
+admin_master_period_delete:
+    pattern:  /{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:Period:delete" }
+    requirements: { _method: post|delete }

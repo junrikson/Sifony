@@ -1,0 +1,44 @@
+{% extends 'SifoAdminBundle::layout.html.twig' %}
+
+{% form_theme form _self %}
+{% block form_row %}
+<div class="form-group">
+  {{ form_label(form) }}
+  <div class="col-sm-10">
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+              <!-- page start-->
+              <section class="panel">
+                  <header class="panel-heading">
+{% block content_header %}
+{{ ('admin.route.' ~ currentGroup)|trans }} - {{ ('admin.route.' ~ currentRoute)|trans }}
+{% endblock %}
+                  </header>
+                  <div class="panel-body">
+                      <div class="adv-table editable-table ">
+                          <div class="clearfix">
+                              <div class="btn-group">
+                                  <a href="{{ path(currentRoute|slice(0,(currentRoute|length)-7)) }}"  class="btn btn-success" ><i class="icon-hand-left"></i>&nbsp;{{ 'admin.button.backToList'|trans }}</a> 
+                              </div>
+                              <div class="btn-group pull-right">
+                                  <button class="btn dropdown-toggle" data-toggle="dropdown">{{ 'admin.button.tools'|trans }}&nbsp;<i class="icon-angle-down"></i>
+                                  </button>
+                                  <ul class="dropdown-menu pull-right">
+                                      <li><a href="#">{{ 'admin.button.print'|trans }}</a></li>
+                                      <li><a href="#">{{ 'admin.button.savePdf'|trans }}</a></li>
+                                      <li><a href="#">{{ 'admin.button.exportExcel'|trans }}</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="space15"></div>
+{% block content_data %} {% endblock %}
+                      </div>
+                  </div>
+              </section>
+              <!-- page end-->
+{% endblock %}

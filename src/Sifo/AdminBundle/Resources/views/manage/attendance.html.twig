@@ -1,0 +1,71 @@
+{% extends 'SifoAdminBundle::manage/layout.html.twig' %}
+
+{% block content_data %}
+                              <div class="form-horizontal tasi-form" style="margin-top: 30px;">
+                              {{ form(form) }}
+                              </div>
+{% if form_collection != null %}
+{{ form_start(form_collection) }}
+{{ form_row(form_collection.tanggal) }}
+                              <div class="col-lg-7" style="margin-top: 30px;">
+                                  <div class="panel-body progress-panel">
+                                      <header class="panel-heading">Daftar Absensi - {{ form_collection.tanggal.vars.value }}</header>
+                                  </div>
+                                  <div class="panel-body progress-panel">
+                                  <table class="table table-striped table-advance table-hover">
+                                      <thead>
+                                      <tr>
+                                          <th width="18%"><i class="icon-zoom-in"></i> NIS</th>
+                                          <th width="50%"><i class="icon-user"></i> Nama</th>
+                                          <th width="30%">
+                                              <select onchange="selectFunction()" id="selectAll">
+                                                  <option value="-" disabled selected style="display:none;">- Select All -</option>
+                                                  <option value="">- Pilih -</option>
+                                                  <option value="H">Hadir</option>
+                                                  <option value="A">Tanpa Keterangan</option>
+                                                  <option value="S">Sakit</option>
+                                                  <option value="I">Izin</option>
+                                                  <option value="L">Libur</option>
+                                              </select>
+                                          </th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+    {% for key, attendance in form_collection.attendances %}
+                                      <tr>
+                                          <td><a href="{{ path('admin_master_student_show', { 'id': entities[key].student.id }) }}"><strong>{{ entities[key].student.code }}</strong></a></td>
+                                          <td>{{ entities[key].student.name }}</td>
+                                          <td>{{ form_row(attendance.status) }}</td>
+                                      </tr>
+    {% endfor %}
+                                      </tbody>
+                                  </table>
+{{ form_end(form_collection) }}
+                                  </div>
+                              </div>
+                              <div class="col-lg-3" style="margin-top: 30px;">
+                                  <div class="panel-body progress-panel">
+                                      <header class="panel-heading">Picture</header>
+                                  </div>
+                                  <div class="panel-body progress-panel">
+                                      <img src="{{ asset('bundles/sifoshared/img/profile-avatar.jpg') }}" />
+                                  </div>
+                              </div>
+{% endif %} 
+{% endblock %}
+
+{% block bottom_special_embed %}
+    <!--script for this page only-->
+    <script src="{{ asset('bundles/sifoshared/js/advanced-form-components.js') }}"></script>
+    <!-- END JAVASCRIPTS -->
+    <script type="text/javascript">
+        function selectFunction(){
+            var myselect = document.getElementById("selectAll");
+            var divs = document.getElementsByClassName('selectStatus')
+            for (var i = 0, l = divs.length; i < l; ++i) {
+                var temp = "sifo_adminbundle_studentsgrouping_attendances_"+ i + "_status";
+                document.getElementById(temp).value = myselect.value;
+            }
+        }
+    </script>
+{% endblock %}

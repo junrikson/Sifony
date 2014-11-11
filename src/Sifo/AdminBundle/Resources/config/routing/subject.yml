@@ -1,0 +1,38 @@
+admin_master_subject:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:Subject:index" }
+
+admin_master_subject_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:Subject:filter" }
+
+admin_master_subject_show:
+    pattern:  /{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:Subject:show" }
+
+admin_master_subject_new:
+    pattern:  /new/index.php
+    defaults: { _controller: "SifoAdminBundle:Subject:new" }
+
+admin_master_subject_create:
+    pattern:  /create/index.php
+    defaults: { _controller: "SifoAdminBundle:Subject:create" }
+    requirements: { _method: post }
+
+admin_master_subject_edit:
+    pattern:  /{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:Subject:edit" }
+
+admin_master_subject_update:
+    pattern:  /{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:Subject:update" }
+    requirements: { _method: post|put }
+
+admin_master_subject_remove:
+    pattern:  /{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:Subject:remove" }
+
+admin_master_subject_delete:
+    pattern:  /{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:Subject:delete" }
+    requirements: { _method: post|delete }

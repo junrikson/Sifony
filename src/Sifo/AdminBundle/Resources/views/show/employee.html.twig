@@ -1,0 +1,172 @@
+{% extends 'SifoAdminBundle::show/layout.html.twig' %}
+
+{% block content_data %}
+                                <div class="form-horizontal tasi-form" style="margin-top: 30px;">
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">NA-SIM</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.code }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nama Lengkap</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.name }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Jabatan</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.position }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">NIP</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.otherCode }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Jenis Kelamin</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">
+                                          {% if entity.gender == "M" %}
+                                              Laki-laki
+                                          {% elseif entity.gender == "F" %}
+                                              Perempuan
+                                          {% else %}
+                                              {{ entity.gender }}
+                                          {% endif %}
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Tempat Lahir</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.birthPlace }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Tanggal Lahir</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.birthDate|date('d-m-Y') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Agama</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.religion }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Status Perkawinan</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">
+                                          {% if entity.marital == "BK" %}
+                                              Belum Menikah
+                                          {% elseif entity.marital == "K0" %}
+                                              Sudah Menikah - Belum Punya Anak
+                                          {% elseif entity.marital == "K1" %}
+                                              Sudah Menikah - Anak 1
+                                          {% elseif entity.marital == "K2" %}
+                                              Sudah Menikah - Anak 2
+                                          {% elseif entity.marital == "K3" %}
+                                              Sudah Menikah - Anak 3 atau lebih
+                                          {% else %}
+                                              {{ entity.marital }}
+                                          {% endif %}
+                                          </p>
+                                      </p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Alamat</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.address }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nomor Telepon</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.phone }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Nomor Handphone</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.mobile }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Berat Badan (kg)</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.weight }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Tinggi Badan (cm)</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.height }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Golongan Darah</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.bloodType }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Pendidikan Terakhir</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.education }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Jurusan</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.subject }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Mulai Bertugas</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.dateEmployed|date('d-m-Y') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Keterangan Lainnya</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.description }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Aktif</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">
+                                            {% if entity.isActive == "1" %}
+                                            <i class="icon-ok"></i>
+                                            {% else %}
+                                            <i class="icon-remove"></i>
+                                            {% endif %}
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Dibuat Pada</label>
+                                      <div class="col-lg-10">
+                                            <p class="form-control-static">{{ entity.createdAt|date('d-m-Y H:i:s') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Diupdate Terakhir</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.updatedAt|date('d-m-Y H:i:s') }}</p>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-lg-2 col-sm-2 control-label">Operator</label>
+                                      <div class="col-lg-10">
+                                          <p class="form-control-static">{{ entity.operator }}</p>
+                                      </div>
+                                  </div>
+{% endblock %}

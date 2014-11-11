@@ -1,0 +1,102 @@
+{% extends 'SifoAdminBundle::layout.html.twig' %}
+
+{% form_theme form _self %}
+{% block form_row %}
+<div class="form-group">
+  {{ form_label(form) }}
+  <div class="col-sm-10">
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+              <!-- page start-->
+              <section class="panel">
+                  <header class="panel-heading">
+{% block content_header %}
+{{ ('admin.route.' ~ currentGroup)|trans }} - {{ ('admin.route.' ~ currentRoute)|trans }}
+{% endblock %}
+                  </header>
+                  <div class="panel-body">
+                      <div class="adv-table editable-table ">
+                          <div class="clearfix">
+{% block content_button_add %}
+                              <div class="btn-group">
+                                  <a href="{{ ('filter' in currentRoute) ? path(currentRoute|slice(0,(currentRoute|length)-7)) : path( currentRoute ~ '_new') }}"  class="btn btn-success" ><i class="icon-plus"></i>&nbsp;{{ 'admin.button.addNew'|trans }}</a>
+                              </div>
+{% endblock %}
+                              <div class="btn-group">
+                                  <a href="#myModalFilter" data-toggle="modal" class="btn btn-info" ><i class="icon-filter"></i>&nbsp;{{ 'admin.button.filter'|trans }}</a>
+                              </div>
+                              <div class="btn-group pull-right">
+                                  <button class="btn dropdown-toggle" data-toggle="dropdown">{{ 'admin.button.tools'|trans }}&nbsp;<i class="icon-angle-down"></i>
+                                  </button>
+                                  <ul class="dropdown-menu pull-right">
+                                      <li><a href="#">{{ 'admin.button.print'|trans }}</a></li>
+                                      <li><a href="#">{{ 'admin.button.savePdf'|trans }}</a></li>
+                                      <li><a href="#">{{ 'admin.button.exportExcel'|trans }}</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="space15"></div>
+                                <div class="form-horizontal tasi-form" style="margin-top: 30px;">
+                                  <div class="modal fade" id="myModalFilter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content" style="text-align: left;" >
+                                          <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                              <h4 class="modal-title">{{ 'admin.text.filterSearch'|trans }}</h4>
+                                          </div>
+                                          <div class="modal-body" >
+                                            {{ form(form) }}
+                                          </div>
+                                          <div class="modal-footer">                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                                  </div>
+                                </div>
+{% block content_table %} {% endblock %}
+    {% if entities != null %}
+                      <div class="panel-body">
+                          <div class="btn-row">
+{% block content_batch %}
+                              <div class="btn-group" data-toggle="buttons">
+                                  <label class="btn btn-danger"><input type="checkbox" id="checkAll" onchange="checkFunction(this)" /><i class="icon-ok"></i>&nbsp;{{ 'admin.button.checkAll'|trans }}</label>
+                                  <div class="btn-group">
+                                      <button class="btn btn-white" type="button">{{ 'admin.button.batch'|trans }}</button>
+                                      <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
+                                      <ul class="dropdown-menu">
+                                          <li><a href="#">{{ 'admin.button.delete'|trans }}</a></li>
+                                          <li><a href="#">{{ 'admin.button.enable'|trans }}</a></li>
+                                          <li><a href="#">{{ 'admin.button.disable'|trans }}</a></li>
+                                      </ul>
+                                  </div>
+                              </div>
+{% endblock %}
+        {% if paginator.getTotalPages() > 1 %}
+            {{ include('SifoAdminBundle::lib/paginator.html.twig', {'paginator' : paginator}) }}
+        {% endif %}
+                          </div>
+                      </div>  
+    {% endif %}                      
+                      </div>
+                  </div>
+              </section>
+              <!-- page end-->
+{% endblock %}
+
+{% block bottom_special_embed %}<!--script for this page only-->
+    <script type="text/javascript">
+        function checkFunction(){
+            var myCheckbox = document.getElementById("checkAll");
+            var divs = document.getElementsByClassName('checkBatch');
+            for (var i = 0, l = divs.length; i < l; ++i) {
+                var temp = "check_"+ i;
+                document.getElementById(temp).checked = myCheckbox.checked;
+            }
+        }
+    </script>
+{% endblock %}  

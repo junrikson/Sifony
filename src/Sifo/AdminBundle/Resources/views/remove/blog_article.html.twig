@@ -1,0 +1,5 @@
+{% extends 'SifoAdminBundle::remove/layout.html.twig' %}
+
+{% block button_show %}<a href="{{ path('admin_blog_article_show', { 'id': entity.id }) }}"><strong>{{ entity.tittle }}</strong></a>{% endblock %}
+
+{% block button_cancel %}<a href="{{ path('admin_blog_article', { 'id': entity.id }) }}" class="btn btn-primary"><i class="icon-edit"></i> &nbsp;{{ 'admin.button.cancel'|trans }}</a>{% endblock %}

@@ -1,0 +1,13 @@
+admin_default:
+    pattern:  /
+    defaults: { _controller: "SifoAdminBundle:Default:index" }
+
+admin_login:
+    pattern:  /login
+    defaults: { _controller: "SifoAdminBundle:Default:login" }
+
+admin_login_check:
+    pattern:  /login_check
+
+admin_logout:
+    pattern:  /logout

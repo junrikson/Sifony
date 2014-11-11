@@ -1,0 +1,38 @@
+admin_result_program:
+    pattern:  /index.php
+    defaults: { _controller: "SifoAdminBundle:Program:index" }
+
+admin_result_program_filter:
+    pattern:  /filter/index.php
+    defaults: { _controller: "SifoAdminBundle:Program:filter" }
+
+admin_result_program_show:
+    pattern:  /{id}/show/index.php
+    defaults: { _controller: "SifoAdminBundle:Program:show" }
+
+admin_result_program_new:
+    pattern:  /new/index.php
+    defaults: { _controller: "SifoAdminBundle:Program:new" }
+
+admin_result_program_create:
+    pattern:  /create/index.php
+    defaults: { _controller: "SifoAdminBundle:Program:create" }
+    requirements: { _method: post }
+
+admin_result_program_edit:
+    pattern:  /{id}/edit/index.php
+    defaults: { _controller: "SifoAdminBundle:Program:edit" }
+
+admin_result_program_update:
+    pattern:  /{id}/update/index.php
+    defaults: { _controller: "SifoAdminBundle:Program:update" }
+    requirements: { _method: post|put }
+
+admin_result_program_remove:
+    pattern:  /{id}/remove/index.php
+    defaults: { _controller: "SifoAdminBundle:Program:remove" }
+
+admin_result_program_delete:
+    pattern:  /{id}/delete/index.php
+    defaults: { _controller: "SifoAdminBundle:Program:delete" }
+    requirements: { _method: post|delete }

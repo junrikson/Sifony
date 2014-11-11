@@ -1,0 +1,27 @@
+user_default:
+    pattern:  /
+    defaults: { _controller: "SifoUserBundle:Default:index" }
+
+user_login:
+    pattern:  /login
+    defaults: { _controller: "SifoUserBundle:Default:login" }
+
+facebook_login:
+    pattern: /login/check-facebook
+
+twitter_login:
+    pattern: /login/check-twitter
+
+user_facebook_login:
+    pattern: /login/facebook
+    defaults: { _controller: "SifoUserBundle:Default:facebook" }
+
+user_twitter_login:
+    pattern: /login/twitter
+    defaults: { _controller: "SifoUserBundle:Default:twitter" }
+
+user_login_check:
+    pattern:  /login_check
+
+user_logout:
+    pattern:  /logout

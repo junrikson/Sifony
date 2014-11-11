@@ -1,0 +1,15 @@
+SifoUserBundle_default:
+    resource: "@SifoUserBundle/Resources/config/routing/default.yml"
+    prefix:   /user
+
+SifoUserBundle_profile:
+    resource: "@SifoUserBundle/Resources/config/routing/profile.yml"
+    prefix:   /user/profile
+
+SifoUserBundle_attendance:
+    resource: "@SifoUserBundle/Resources/config/routing/attendance.yml"
+    prefix:   /user/attendance
+
+SifoUserBundle_result:
+    resource: "@SifoUserBundle/Resources/config/routing/result.yml"
+    prefix:   /user/result
