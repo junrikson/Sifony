@@ -1,0 +1,71 @@
+security:
+    encoders:
+        # Symfony\Component\Security\Core\User\User: plaintext
+        Sifo\SharedBundle\Entity\Employee: plaintext
+        Sifo\SharedBundle\Entity\Student: plaintext
+
+    role_hierarchy:
+        #ROLE_ADMIN:       ROLE_USER
+        #ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        # in_memory:
+           # memory:
+               # users:
+                   # user_area:  { password: userpass, roles: [ 'ROLE_USER' ] }
+        #            admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        admin_area:
+            entity: { class: SifoSharedBundle:Employee, property: code }
+        user_area:
+            entity: { class: SifoSharedBundle:Student, property: code }
+        
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+            anonymous: true
+        alogin:
+            pattern:  ^/admin/login$
+            security: false
+            anonymous: ~
+        login:
+            pattern:  ^/user/login$
+            security: false
+            anonymous: ~
+        admin_area:
+            pattern:    ^/admin
+            anonymous: false
+            provider: admin_area
+            form_login:
+                check_path: /admin/login_check
+                login_path: /admin/login
+            logout:
+                path:   /admin/logout
+                target: /admin
+        user_area:
+            pattern: ^/user
+            anonymous: false
+            oauth:
+                resource_owners:
+                    facebook:  "/user/login/check-facebook"
+                    twitter:   "/user/login/check-twitter"
+                login_path:    /user/login
+                failure_path:  /user/login
+                check_path:    /user/login_check
+                
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
+            form_login:
+                provider: user_area
+                check_path: /user/login_check
+                failure_path:  /user/login
+                login_path: /user/login
+            logout:
+                path:   /user/logout
+                target: /user
+
+    access_control:
+        - { path: ^/admin/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, roles: ROLE_ADMIN }
+        - { path: ^/user/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/, roles: ROLE_USER }

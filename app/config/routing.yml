@@ -1,0 +1,20 @@
+sifo_shared:
+    resource: "@SifoSharedBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sifo_public:
+    resource: "@SifoPublicBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sifo_user:
+    resource: "@SifoUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sifo_admin:
+    resource: "@SifoAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#HWIOAuthBundle routes# app/config/routing.yml
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /admin
