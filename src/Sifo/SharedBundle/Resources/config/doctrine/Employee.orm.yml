@@ -1,0 +1,191 @@
+Sifo\SharedBundle\Entity\Employee:
+    type: entity
+    repositoryClass: Sifo\AdminBundle\Repository\EmployeeRepository
+    table: employee
+    uniqueConstraints:
+        code:
+            columns:
+                - code
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        otherCode:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: other_code
+        name:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        password:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        salt:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        gender:
+            type: string
+            nullable: true
+            length: 5
+            fixed: true
+            comment: ''
+            default: ''
+        birthPlace:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: birth_place
+        birthDate:
+            type: date
+            nullable: true
+            comment: ''
+            column: birth_date
+        religion:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        marital:
+            type: string
+            nullable: true
+            length: 5
+            fixed: true
+            comment: ''
+            default: ''
+        address:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        phone:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        mobile:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        bloodType:
+            type: string
+            nullable: true
+            length: 5
+            fixed: true
+            comment: ''
+            default: ''
+            column: blood_type
+        height:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+            default: ''
+        weight:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+            default: ''
+        education:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        subject:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        dateEmployed:
+            type: date
+            nullable: true
+            comment: ''
+            column: date_employed
+        description:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        isActive:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: ''
+            column: is_active
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        operator:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    manyToOne:
+        position:
+            targetEntity: Position
+            inversedBy: employees
+            joinColumns:
+                position_id:
+                    nullable: false
+                    referencedColumnName: id
+    oneToMany:
+        groupings:
+            targetEntity: Grouping
+            mappedBy: employee
+        subjectsGroupings:
+            targetEntity: SubjectsGrouping
+            mappedBy: employee
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

@@ -1,0 +1,279 @@
+Sifo\SharedBundle\Entity\Student:
+    type: entity
+    repositoryClass: Sifo\AdminBundle\Repository\StudentRepository
+    table: student
+    uniqueConstraints:
+        code:
+            columns:
+                - code
+        email:
+            columns:
+                - email
+        facebookId:
+            columns:
+                - facebook_id
+        twitterId:
+            columns:
+                - twitter_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        email:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        facebookId:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+            column: facebook_id
+        facebookAccessToken:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+            column: facebook_access_token
+        twitterId:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+            column: twitter_id
+        twitterAccessToken:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+            column: twitter_access_token
+        otherCode:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: other_code
+        name:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        dateEntered:
+            type: date
+            nullable: true
+            comment: ''
+            column: date_entered
+        password:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        salt:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        gender:
+            type: string
+            nullable: true
+            length: 5
+            fixed: true
+            comment: ''
+            default: ''
+        birthPlace:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: birth_place
+        birthDate:
+            type: date
+            nullable: true
+            comment: ''
+            column: birth_date
+        religion:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        address:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        phone:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        mobile:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        bloodType:
+            type: string
+            nullable: true
+            length: 5
+            fixed: true
+            comment: ''
+            default: ''
+            column: blood_type
+        fatherName:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: father_name
+        fatherJob:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: father_job
+        fatherPhone:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: father_phone
+        motherName:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: mother_name
+        motherJob:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: mother_job
+        motherPhone:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: mother_phone
+        custodianName:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: custodian_name
+        custodianJob:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: custodian_job
+        custodianPhone:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+            column: custodian_phone
+        description:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        isActive:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: ''
+            column: is_active
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        operator:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    manyToOne:
+        unit:
+            targetEntity: Unit
+            inversedBy: students
+            joinColumns:
+                unit_id:
+                    nullable: false
+                    referencedColumnName: id
+        period:
+            targetEntity: Period
+            inversedBy: students
+            joinColumns:
+                period_id:
+                    nullable: false
+                    referencedColumnName: id
+    oneToMany:
+        studentsGroupings:
+            targetEntity: StudentsGrouping
+            mappedBy: student
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

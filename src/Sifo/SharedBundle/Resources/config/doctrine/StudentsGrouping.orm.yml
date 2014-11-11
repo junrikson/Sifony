@@ -1,0 +1,66 @@
+Sifo\SharedBundle\Entity\StudentsGrouping:
+    type: entity
+    table: students_grouping
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        isActive:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: ''
+            column: is_active
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        operator:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    manyToOne:
+        grouping:
+            targetEntity: Grouping
+            inversedBy: studentsGroupings
+            joinColumns:
+                grouping_id:
+                    nullable: false
+                    referencedColumnName: id
+        student:
+            targetEntity: Student
+            inversedBy: studentsGroupings
+            joinColumns:
+                student_id:
+                    nullable: false
+                    referencedColumnName: id
+    oneToMany:
+        attendances:
+            targetEntity: Attendance
+            mappedBy: studentsGrouping
+        results:
+            targetEntity: Result
+            mappedBy: studentsGrouping
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

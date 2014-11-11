@@ -1,0 +1,11 @@
+public_default:
+    pattern:  /
+    defaults: { _controller: "SifoPublicBundle:Default:index" }
+
+public_default_category:
+    pattern:  /public/{category}
+    defaults: { _controller: "SifoPublicBundle:Default:category" }
+
+public_default_page:
+    pattern:  /public/{category}/{page}
+    defaults: { _controller: "SifoPublicBundle:Default:page" }

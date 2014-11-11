@@ -1,0 +1,107 @@
+Sifo\SharedBundle\Entity\Grouping:
+    type: entity
+    repositoryClass: Sifo\AdminBundle\Repository\GroupingRepository
+    table: grouping
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        semester:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+            default: ''
+        password1:
+            type: string
+            nullable: true
+            length: 256
+            fixed: true
+            comment: ''
+            default: ''
+        password2:
+            type: string
+            nullable: true
+            length: 256
+            fixed: true
+            comment: ''
+            default: ''
+        description:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        isActive:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: ''
+            column: is_active
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        operator:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    manyToOne:
+        period:
+            targetEntity: Period
+            inversedBy: groupings
+            joinColumns:
+                period_id:
+                    nullable: false
+                    referencedColumnName: id
+        classroom:
+            targetEntity: Classroom
+            inversedBy: groupings
+            joinColumns:
+                classroom_id:
+                    nullable: false
+                    referencedColumnName: id
+        employee:
+            targetEntity: Employee
+            inversedBy: groupings
+            joinColumns:
+                employee_id:
+                    nullable: false
+                    referencedColumnName: id
+        unit:
+            targetEntity: Unit
+            inversedBy: groupings
+            joinColumns:
+                unit_id:
+                    nullable: false
+                    referencedColumnName: id
+    oneToMany:
+        studentsGroupings:
+            targetEntity: StudentsGrouping
+            mappedBy: grouping
+        subjectsGroupings:
+            targetEntity: SubjectsGrouping
+            mappedBy: grouping
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

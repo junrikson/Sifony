@@ -1,0 +1,69 @@
+Sifo\SharedBundle\Entity\Unit:
+    type: entity
+    repositoryClass: Sifo\AdminBundle\Repository\UnitRepository
+    table: unit
+    uniqueConstraints:
+        name:
+            columns:
+                - name
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        address:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        description:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        isActive:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: ''
+            column: is_active
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        operator:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    oneToMany:
+        students:
+            targetEntity: Student
+            mappedBy: unit
+        groupings:
+            targetEntity: Grouping
+            mappedBy: unit
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

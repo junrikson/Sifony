@@ -1,0 +1,77 @@
+{% extends 'SifoPublicBundle::layout.html.twig' %}
+
+{% block body %}
+<body class="page-sub-page">
+{% endblock %}
+
+{% block breadcrumb %}
+<!-- Breadcrumb -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{{ path('public_default_category', { 'category': category.code }) }}">{{ category.name }}</a></li>
+        <li class="active">{{ page == null ? 'public.text.noData'|trans : page.tittle }}</li>
+    </ol>
+</div>
+<!-- end Breadcrumb -->
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <!--MAIN Content-->
+{% block content_main %}
+            <div class="col-md-8">
+                <div id="page-main">
+                    <section id="right-sidebar">
+  {% if page == null %}
+                        <header><h2>{{ 'public.text.noData'|trans }}</h2></header>
+                        <p>{{ 'public.text.noPage'|trans }}</p>
+  {% else %}
+                        <header><h2>{{ page.tittle }}</h2></header>
+                        {{ page.content|raw }}
+  {% endif %}
+                    </section>
+                </div><!-- /#page-main -->
+            </div><!-- /.col-md-8 -->
+{% endblock %}
+            <!--SIDEBAR Content-->
+            <div class="col-md-4">
+                <div id="page-sidebar" class="sidebar">
+                    <aside id="newsletter">
+                        <header>
+                            <h2>{{ 'public.text.newsletter'|trans }}</h2>
+                            <div class="section-content">
+                                <div class="newsletter">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="{{ 'public.text.email'|trans }}">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn"><i class="fa fa-angle-right"></i></button>
+                                    </span>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.newsletter -->
+                            </div><!-- /.section-content -->
+                        </header>
+                    </aside><!-- /.newsletter -->      
+                    <aside class="news-small" id="news-small">
+                        <header>
+                            <h2>{{ 'public.text.news'|trans }}</h2>
+                        </header>
+                        <div class="section-content">
+                            
+                        </div><!-- /.section-content -->
+                        <a href="#" class="read-more">{{ 'public.text.moreNews'|trans }}</a>
+                    </aside><!-- /.news-small -->
+                    <aside class="news-small" id="news-small">
+                        <header>
+                            <h2>{{ 'public.text.agenda'|trans }}</h2>
+                        </header>
+                        <div class="section-content">
+                            
+                        </div><!-- /.section-content -->
+                        <a href="#" class="read-more">{{ 'public.text.moreAgendas'|trans }}</a>
+                    </aside><!-- /.news-small -->              
+                </div><!-- /#sidebar -->
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+{% endblock %}

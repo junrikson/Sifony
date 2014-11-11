@@ -1,0 +1,3 @@
+SifoPublicBundle_default:
+    resource: "@SifoPublicBundle/Resources/config/routing/default.yml"
+    prefix:   /

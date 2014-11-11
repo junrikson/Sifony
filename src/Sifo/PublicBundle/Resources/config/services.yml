@@ -1,0 +1,7 @@
+parameters:
+#    sifo_public.example.class: Sifo\PublicBundle\Example
+
+services:
+#    sifo_public.example:
+#        class: %sifo_public.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

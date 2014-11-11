@@ -1,0 +1,98 @@
+Sifo\SharedBundle\Entity\BlogMenu:
+    type: entity
+    repositoryClass: Sifo\AdminBundle\Repository\BlogMenuRepository
+    table: blogmenu
+    uniqueConstraints:
+        code:
+            columns:
+                - code
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        name:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        type:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+        description:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        orders:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+        isActive:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: ''
+            column: is_active
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        operator:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    oneToMany:
+        children:
+            targetEntity: BlogMenu
+            mappedBy: parent
+    manyToOne:
+        blogPage:
+            targetEntity: BlogPage
+            inversedBy: blogMenus
+            joinColumns:
+                blog_page_id:
+                    nullable: true
+                    referencedColumnName: id
+        blogCategory:
+            targetEntity: BlogCategory
+            inversedBy: blogMenus
+            joinColumns:
+                blog_category_id:
+                    nullable: true
+                    referencedColumnName: id
+        parent:
+            targetEntity: BlogMenu
+            inversedBy: children
+            joinColumns:
+                parent_id:
+                    nullable: true
+                    referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

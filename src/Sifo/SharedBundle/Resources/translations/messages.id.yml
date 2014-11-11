@@ -1,0 +1,5 @@
+# Sifo\PublicBundle\Resources\translations\messages.id.yml
+public:
+  text:
+    noData: Tidak ada Data
+    noPage: Halaman untuk kategori awal belum ditentukan

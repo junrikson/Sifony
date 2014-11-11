@@ -1,0 +1,82 @@
+Sifo\SharedBundle\Entity\BlogAgenda:
+    type: entity
+    repositoryClass: Sifo\AdminBundle\Repository\BlogAgendaRepository
+    table: blogagenda
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        tittle:
+            type: string
+            nullable: false
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        dateStart:
+            type: date
+            nullable: true
+            column: date_start
+        dateEnd:
+            type: date
+            nullable: true
+            column: date_end
+        timeStart:
+            type: time
+            nullable: true
+            column: time_start
+        timeEnd:
+            type: time
+            nullable: true
+            column: time_End
+        place:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        content:
+            type: text
+            nullable: true
+            fixed: false
+            comment: ''
+            default: ''
+        isActive:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: ''
+            column: is_active
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        operator:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    manyToMany:
+        blogCategories:
+            targetEntity: BlogCategory
+            inversedBy: blogAgendas
+            joinColumns:
+                blog_category_id:
+                    nullable: true
+                    referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

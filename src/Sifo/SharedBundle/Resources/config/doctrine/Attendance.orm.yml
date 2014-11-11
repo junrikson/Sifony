@@ -1,0 +1,57 @@
+Sifo\SharedBundle\Entity\Attendance:
+    type: entity
+    table: attendance
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        date:
+            type: date
+            nullable: false
+            comment: ''
+        description:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        status:
+            type: string
+            nullable: true
+            length: 5
+            fixed: true
+            comment: ''
+            default: ''
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        operator:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    manyToOne:
+        studentsGrouping:
+            targetEntity: StudentsGrouping
+            inversedBy: attendances
+            joinColumns:
+                students_grouping_id:
+                    nullable: false
+                    referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

@@ -1,0 +1,11 @@
+# Sifo\PublicBundle\Resources\translations\messages.id.yml
+public:
+  text:
+    agenda: Agenda
+    email: Alamat e-mail
+    moreAgendas: Semua Agenda
+    moreNews: Semua Berita
+    news: Berita
+    newsletter: Langganan Berita
+    noData: Tidak ada Data
+    noPage: Halaman untuk kategori awal belum ditentukan

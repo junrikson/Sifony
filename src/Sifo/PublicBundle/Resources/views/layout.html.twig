@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="junrikson@gmail.com">
+    <link rel="shortcut icon" href="{{ asset('bundles/sifoshared/img/favicon.ico') }}">
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('bundles/sifopublic/assets/css/font-awesome.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('bundles/sifopublic/assets/bootstrap/css/bootstrap.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('bundles/sifopublic/assets/css/selectize.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('bundles/sifopublic/assets/css/owl.carousel.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('bundles/sifopublic/assets/css/vanillabox/vanillabox.css') }}" type="text/css">
+
+    <link rel="stylesheet" href="{{ asset('bundles/sifopublic/assets/css/style.css') }}" type="text/css">
+
+    <title>Selamat datang di Yayasan Perguruan Sultan Iskandar Muda</title>
+
+</head>
+
+{% block body %}
+<body class="page-homepage-carousel">
+{% endblock %}
+
+<!-- Wrapper -->
+<div class="wrapper">
+<!-- Header -->
+<div class="navigation-wrapper">
+    <div class="secondary-navigation-wrapper">
+        <div class="container">
+            <div class="navigation-contact pull-left">Telp:  <span class="opacity-70">+6261 8457702 – 8457033 </span></div>
+            <ul class="secondary-navigation list-unstyled pull-right">
+{% for cat in categories %}
+                <li><a href="{{ path('public_default_category', { 'category': cat.code }) }}">{% if( cat == category) %}<i>{{ cat.name }}</i>{% else %}{{ cat.name }}{% endif %}</a></li>
+{% endfor %}
+            </ul>
+        </div>
+    </div><!-- /.secondary-navigation -->
+
+    <div class="primary-navigation-wrapper">
+        <header class="navbar" id="top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand nav" id="brand">
+                        <a href="{{ path('public_default') }}"><img src="{{ asset('bundles/sifopublic/assets/img/logo.png') }}" alt="brand" /></a>
+                    </div>
+                </div>
+
+{% block menu %}
+                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                    <ul class="nav navbar-nav">
+{% for menu in menus %}
+  {% if menu.parent == null and menu.type == 2 %}
+                        <li class="">
+                            <a href="{{ menu.blogPage == null  ? path('public_default') : path('public_default_page', { 'category': category.id, 'page': menu.blogPage.code }) }}">{{ menu.name }}</a>                            
+                        </li>
+  {% elseif menu.type == 1 %}
+                        <li>
+                            <a href="#" class="has-child no-link">{{ menu.name }}</a>
+                            <ul class="list-unstyled child-navigation">
+     {% for children in menu.children %}
+                                <li><a href="{{ children.blogPage == null  ? '#' : path('public_default_page', { 'category': category.id, 'page': children.blogPage.code }) }}">{{ children.name }}</a></li>
+     {% endfor %}
+                            </ul>
+                        </li>     
+  {% endif %}
+{% endfor %}
+                    </ul>
+                </nav><!-- /.navbar collapse-->
+{% endblock %}
+            </div><!-- /.container -->
+        </header><!-- /.navbar -->
+    </div><!-- /.primary-navigation -->
+
+    <div class="background">
+    </div>
+</div>
+<!-- end Header -->
+
+{% block breadcrumb %}
+{% endblock %}
+
+<!-- Page Content -->
+<div id="page-content">
+{% block content %}
+
+{% endblock %}
+</div>
+<!-- end Page Content -->
+
+<!-- Footer -->
+<footer id="page-footer">
+    <section id="footer-top">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-social">
+                    <figure>Follow us:</figure>
+                    <div class="icons">
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div><!-- /.icons -->
+                </div><!-- /.social -->
+                <div class="search pull-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                    </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.pull-right -->
+            </div><!-- /.footer-inner -->
+        </div><!-- /.container -->
+    </section><!-- /#footer-top -->
+
+    <section id="footer-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <aside class="logo">
+                        <img src="{{ asset('bundles/sifopublic/assets/img/logo-white.png') }}" class="vertical-center">
+                    </aside>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-4">
+                    <aside>
+                        <header><h4>Hubungi Kami</h4></header>
+                        <address>
+                            <strong>Jl. Tengku Amir Hamzah Pekan I, Gg. Bakul</strong>
+                            <br>
+                            <span>Medan Sunggal – 20128 </span>
+                            <br><br>
+                            <abbr title="Telepon">Telp:</abbr> +6261 8457702 – 8457033 
+                            <br>
+                            <abbr title="Fax">Fax:</abbr> + 6261 8457033 
+                        </address>
+                    </aside>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-4">
+                    <aside>
+                        <header><h4>Portal</h4></header>
+                        <ul class="list-links">
+                            <li><a href="{{ path('user_default') }}">SIFO</a></li>
+                        </ul>
+                    </aside>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-4">
+                    <aside>
+                        <header><h4>Tentang Kami</h4></header>
+                        <p style="text-align: justify;">Yayasan Perguruan Sultan Iskandar Muda adalah sebuah wadah pendidikan yang unik. Kami menawarkan kualitas pendidikan yang baik dan sekaligus kami juga mempunyai misi sosial untuk memberantas kebodohan dan kemiskinan di Indonesia melalui Program Anak Asuh Silang dan Berantai yang dibentuk pada tahun 1988, serta program subsidi silang.
+                        </p>
+                        <div>
+                            <a href="{{ path('public_default_page', { 'category': '1', 'page': 'home-about' }) }}" class="read-more">Baca Selengkapnya</a>
+                        </div>
+                    </aside>
+                </div><!-- /.col-md-3 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="background"></div>
+    </section><!-- /#footer-content -->
+
+    <section id="footer-bottom">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="copyright">2014 © YP. Sultan Iskandar Muda </div><!-- /.copyright -->
+            </div><!-- /.footer-inner -->
+        </div><!-- /.container -->
+    </section><!-- /#footer-bottom -->
+
+</footer>
+<!-- end Footer -->
+
+</div>
+<!-- end Wrapper -->
+
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/jquery-2.1.0.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/selectize.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/owl.carousel.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/jquery.validate.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/jquery.placeholder.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/jQuery.equalHeights.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/icheck.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/jquery.vanillabox-0.1.5.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/retina-1.1.0.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('bundles/sifopublic/assets/js/custom.js') }}"></script>
+
+</body>
+</html>

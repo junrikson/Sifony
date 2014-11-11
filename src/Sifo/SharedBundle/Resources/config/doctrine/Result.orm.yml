@@ -1,0 +1,146 @@
+Sifo\SharedBundle\Entity\Result:
+    type: entity
+    table: result
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        number1:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+            default: ''
+            column: number_1
+        number2:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+            default: ''
+            column: number_2
+        number3:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+            default: ''
+            column: number_3
+        number4:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+            default: ''
+            column: number_4
+        number5:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+            default: ''
+            column: number_5
+        text1:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: '-'
+            column: text_1
+        text2:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: '-'
+            column: text_2
+        text3:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+            column: text_3
+        text4:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+            column: text_4
+        text5:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+            column: text_5
+        description:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            default: ''
+        isActive:
+            type: boolean
+            nullable: true
+            comment: ''
+            default: ''
+            column: is_active
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        operator:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    manyToOne:
+        studentsGrouping:
+            targetEntity: StudentsGrouping
+            inversedBy: results
+            joinColumns:
+                students_grouping_id:
+                    nullable: false
+                    referencedColumnName: id
+        subjectsGrouping:
+            targetEntity: SubjectsGrouping
+            inversedBy: results
+            joinColumns:
+                subjects_grouping_id:
+                    nullable: false
+                    referencedColumnName: id
+        program:
+            targetEntity: Program
+            inversedBy: results
+            joinColumns:
+                program_id:
+                    nullable: false
+                    referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]
