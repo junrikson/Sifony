@@ -1,4 +1,4 @@
-#Sistem Informasi Sekolah
+# Sistem Informasi Sekolah
 
 I love helping peoples and discuss new things. Just contact me if you have interesting project or discussion through my email at junrikson@gmail.com
 
